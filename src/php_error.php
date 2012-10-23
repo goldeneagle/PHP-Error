@@ -1449,7 +1449,7 @@
                     });
 
                     $self = $this;
-                    register_shutdown_function( function() use ( $self ) {
+                  register_shutdown_function( function() use ( $self ) {
                         $self->__onShutdown();
                     });
                 }
@@ -1495,11 +1495,6 @@
              */
             public function endBuffer() {
                 if ( $this->isBufferSetup ) {
-                    if ( 
-                            !$this->isAjax &&
-                             $this->catchAjaxErrors &&
-                            (!$this->htmlOnly || !ErrorHandler::isNonPHPRequest())
-                    ) {
                         $content  = ob_get_contents();
                         $handlers = ob_list_handlers();
 
@@ -1521,7 +1516,12 @@
 
                         $content = $this->discardBuffer();
 
-                        if ( $wasGZHandler ) {
+                  if (
+                    !$this->isAjax &&
+                    $this->catchAjaxErrors &&
+                    (!$this->htmlOnly || !ErrorHandler::isNonPHPRequest())
+                  ) {
+                    if ( $wasGZHandler ) {
                             ob_start('ob_gzhandler');
                         } else {
                             ob_start();
@@ -1540,9 +1540,9 @@
                         } else {
                             echo $js;
                         }
+                  }
           
-                        echo $content;
-                    }
+                  echo $content;
                 }
             }
 
