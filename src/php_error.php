@@ -1129,7 +1129,7 @@
             private $bufferOutputStr;
             private $bufferOutput;
 
-            private $isAjax;
+            public $isAjax;
 
             private $lastGlobalErrorHandler;
 
