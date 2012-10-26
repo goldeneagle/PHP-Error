@@ -1449,7 +1449,7 @@
                     });
 
                     $self = $this;
-                  register_shutdown_function( function() use ( $self ) {
+                    register_shutdown_function( function() use ( $self ) {
                         $self->__onShutdown();
                     });
                 }
@@ -1521,7 +1521,7 @@
                     $this->catchAjaxErrors &&
                     (!$this->htmlOnly || !ErrorHandler::isNonPHPRequest())
                   ) {
-                    if ( $wasGZHandler ) {
+                        if ( $wasGZHandler ) {
                             ob_start('ob_gzhandler');
                         } else {
                             ob_start();
@@ -1542,9 +1542,9 @@
                         }
                   }
           
-                  echo $content;
+                        echo $content;
+                    }
                 }
-            }
 
             /**
              * Calls the given method on this object,
