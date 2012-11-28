@@ -1500,7 +1500,6 @@
                 if ( $this->isBufferSetup ) {
                         $content  = ob_get_contents();
                         $handlers = ob_list_handlers();
-
                         $wasGZHandler = false;
 
                         $this->bufferOutput = true;
@@ -1510,6 +1509,8 @@
                             if ( $handler === 'ob_gzhandler' ) {
                                 $wasGZHandler = true;
                                 ob_end_clean();
+                            } else if ($handler === 'zlib output compression') {
+
                             } else if ( $handler === 'default output handler' ) {
                                 ob_end_clean();
                             } else {
