@@ -2809,7 +2809,7 @@
                                         'timeout',
                                         'upload',
                                         'withCredentials',
-                                        'responseType',
+                                        // 'responseType',
 
                                         'mozBackgroundRequest',
                                         'mozArrayBuffer',
